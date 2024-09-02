@@ -52,7 +52,14 @@ func tokenize(_ input: String) -> [Token] {
 
 let tokens: [Token] = tokenize("Hello1@World!@1@ 2@@@")
 
-// Print all tokens
+// Phase 1
+print("===================================================\nPhase 1 Output:")
 for token in tokens {
-    print("Type: \(token.type) - Token: \(token.tokenString)")
+    print("Token: \(token.tokenString) - Type: \(token.type)")
+}
+
+// Phase 2
+print("===================================================\nPhase 2 Output (Granular Breakdown):")
+for token in tokens {
+    print("Token: \(token.tokenString) -> \(Array(token.tokenString))")
 }
