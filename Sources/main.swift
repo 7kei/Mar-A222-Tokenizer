@@ -1,6 +1,8 @@
 import Foundation
 
 enum TokenType {
+    case word
+    case number
     case unspecified
 }
 
@@ -12,6 +14,9 @@ struct Token {
 func tokenize(_ input: String) -> [Token] {
     let delimiter: String = "@"
 
+    let alphabet: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let digits: String = "0123456789"
+
     var tokens: [Token] = []
     let splitString: [String] = input.components(separatedBy: delimiter)
 
@@ -21,6 +26,10 @@ func tokenize(_ input: String) -> [Token] {
         // if empty
         if split == " " || split == "" {
             type = .unspecified
+        } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: alphabet)) != nil {
+            type = .word
+        } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: digits)) != nil {
+            type = .number
         }
 
         tokens.append(Token(type: type, tokenString: split))
@@ -29,7 +38,7 @@ func tokenize(_ input: String) -> [Token] {
     return tokens
 }
 
-let tokens: [Token] = tokenize("Hello@World!")
+let tokens: [Token] = tokenize("Hello@World!@1")
 
 // Print all tokens
 for token in tokens {
