@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:ProgLang}",
+            "name": "Debug ProgLang",
+            "program": "${workspaceFolder:ProgLang}\\.build\\debug\\ProgLang.exe",
+            "preLaunchTask": "swift: Build Debug ProgLang"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:ProgLang}",
+            "name": "Release ProgLang",
+            "program": "${workspaceFolder:ProgLang}\\.build\\release\\ProgLang.exe",
+            "preLaunchTask": "swift: Build Release ProgLang"
+        }
+    ]
+}
