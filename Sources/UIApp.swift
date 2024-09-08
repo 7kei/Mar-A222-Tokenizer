@@ -35,6 +35,7 @@ public class UIApp: SwiftApplication {
         inputTextBox.header = "Input to be tokenized:"
         inputTextBox.placeholderText = "Enter here"
         inputTextBox.minWidth = 300.0
+        inputTextBox.maxWidth = 300.0
 
         let inputButton = Button()
         inputButton.content = "Tokenize"
