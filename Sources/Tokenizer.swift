@@ -6,6 +6,7 @@ public class Tokenizer {
         case alphanumeric
         case number
         case punctuation
+        case sentence
         case endofline
         case tab
         case whitespace
@@ -36,6 +37,9 @@ public class Tokenizer {
                 continue // Skip if token is empty
             } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: alphabet)) != nil {
                 type = .word
+                if split.rangeOfCharacter(from: CharacterSet(charactersIn: whitespace)) != nil { 
+                    type = .sentence 
+                }
                 if split.rangeOfCharacter(from: CharacterSet(charactersIn: digits)) != nil { 
                     type = .alphanumeric 
                 }
