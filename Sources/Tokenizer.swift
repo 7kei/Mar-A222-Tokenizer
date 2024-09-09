@@ -36,17 +36,17 @@ public class Tokenizer {
             if split.isEmpty {
                 continue // Skip if token is empty
             } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: alphabet)) != nil {
-                type = .word
+                type = .word // If token contains letters only, type is word
                 if split.rangeOfCharacter(from: CharacterSet(charactersIn: whitespace)) != nil { 
-                    type = .sentence 
+                    type = .sentence // If token also has whitespace, the type is sentence
                 }
                 if split.rangeOfCharacter(from: CharacterSet(charactersIn: digits)) != nil { 
-                    type = .alphanumeric 
+                    type = .alphanumeric // Lastly, if token also has number, the type is alphanumeric
                 }
             } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: digits)) != nil {
-                type = .number
+                type = .number // If token contains digits, type is number
                 if split.rangeOfCharacter(from: CharacterSet(charactersIn: alphabet)) != nil { 
-                    type = .alphanumeric 
+                    type = .alphanumeric // If token contains letters, type is alphanumeric
                 }
             } else if split.rangeOfCharacter(from: CharacterSet(charactersIn: punct)) != nil {
                 type = .punctuation
