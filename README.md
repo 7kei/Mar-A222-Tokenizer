@@ -2,6 +2,8 @@
 
 A sample tokenizer written in Swift, with an accompanying UI using WinUI through [Swift-WinRT](https://github.com/thebrowsercompany/swift-winrt).
 
+![screenshot](Thumbnail.png)
+
 ## Setup
 
 ### Building
